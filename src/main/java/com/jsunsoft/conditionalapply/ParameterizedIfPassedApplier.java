@@ -23,13 +23,13 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class ParameterizableIfPassedApplier<T, R> implements ParameterizablePassedApplier<T, R> {
+public class ParameterizedIfPassedApplier<T, R> implements ParameterizedPassedApplier<T, R> {
 
     private final Map<Collection<Predicate<T>>, Function<T, R>> filterPredicatesToPassedFunction;
 
-    ParameterizableIfPassedApplier(Map<Collection<Predicate<T>>, Function<T, R>> filterPredicatesToPassedFunction) {
+    ParameterizedIfPassedApplier(Map<Collection<Predicate<T>>, Function<T, R>> filterPredicatesToPassedFunction) {
         if (filterPredicatesToPassedFunction.isEmpty()) {
-            throw new IllegalStateException("Does not make sense to create an empty instance of '" + ParameterizableIfPassedApplier.class + '\'');
+            throw new IllegalStateException("Does not make sense to create an empty instance of '" + ParameterizedIfPassedApplier.class + '\'');
         }
         this.filterPredicatesToPassedFunction = new LinkedHashMap<>(filterPredicatesToPassedFunction);
     }
