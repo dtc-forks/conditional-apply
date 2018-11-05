@@ -18,6 +18,6 @@ package com.jsunsoft.conditionalapply;
 
 import java.util.Optional;
 
-public interface ParameterizablePassedApplier<T, R> {
+public interface ParameterizedPassedApplier<T, R> {
     Optional<R> apply(T t);
 }

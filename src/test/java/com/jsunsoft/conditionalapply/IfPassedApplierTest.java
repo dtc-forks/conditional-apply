@@ -19,9 +19,6 @@ package com.jsunsoft.conditionalapply;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class IfPassedApplierTest {
     private final String testValue1 = "test1";
     private final String testValue2 = "test2";
@@ -67,21 +64,5 @@ public class IfPassedApplierTest {
                         .build();
 
         Assert.assertEquals("passed", ifPassedApplier.apply().get());
-    }
-
-    private ParameterizablePassedApplier<Map<String, String>, String> ifPassedApplier =
-            ParameterizableIfPassedApplierBuilder.<Map<String, String>, String>create()
-                    .filter((map1) -> map1.containsKey(testValue1))
-                    .filter((map1) -> map1.containsValue(testValue2))
-                    .ifPassedApply((map1) -> "passed")
-                    .build();
-
-    @Test
-    public void testPassedParam() {
-        Map<String, String> map = new HashMap<>();
-        map.put("test1", "test2");
-
-
-        Assert.assertEquals("passed", ifPassedApplier.apply(map).get());
     }
 }

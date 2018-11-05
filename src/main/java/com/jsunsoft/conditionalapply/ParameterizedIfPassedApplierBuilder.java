@@ -20,25 +20,25 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class ParameterizableIfPassedApplierBuilder<T, R> {
+public class ParameterizedIfPassedApplierBuilder<T, R> {
     private Collection<Predicate<T>> filterPredicates;
 
     private final Map<Collection<Predicate<T>>, Function<T, R>> filterSuppliersToPassedFunction;
 
 
-    private ParameterizableIfPassedApplierBuilder() {
+    private ParameterizedIfPassedApplierBuilder() {
         filterPredicates = new ArrayList<>();
         filterSuppliersToPassedFunction = new LinkedHashMap<>();
     }
 
-    public ParameterizableIfPassedApplierBuilder<T, R> filter(Predicate<T> filterPredicate) {
+    public ParameterizedIfPassedApplierBuilder<T, R> filter(Predicate<T> filterPredicate) {
         Objects.requireNonNull(filterPredicate, "parameter 'filterPredicate' may not be null");
 
         filterPredicates.add(filterPredicate);
         return this;
     }
 
-    public ParameterizableIfPassedApplierBuilder<T, R> ifPassedApply(Function<T, R> passedFunction) {
+    public ParameterizedIfPassedApplierBuilder<T, R> ifPassedApply(Function<T, R> passedFunction) {
         Objects.requireNonNull(passedFunction, "parameter 'passedFunction' may not be null");
         if (filterPredicates.isEmpty()) {
             throw new IllegalStateException("Filter isn't present");
@@ -48,22 +48,17 @@ public class ParameterizableIfPassedApplierBuilder<T, R> {
         return this;
     }
 
-    public ParameterizableIfPassedApplierBuilder<T, R> otherwise(Function<T, R> passedFunction) {
+    public ParameterizedIfPassedApplierBuilder<T, R> otherwise(Function<T, R> passedFunction) {
         filterSuppliersToPassedFunction.put(Collections.emptyList(), passedFunction);
         return this;
     }
 
-    public ParameterizableIfPassedApplierBuilder<T, R> applyAnyway(Function<T, R> passedFunction) {
-        filterSuppliersToPassedFunction.put(Collections.singleton(t -> true), passedFunction);
-        return this;
-    }
-
-    public ParameterizableIfPassedApplier<T, R> build() {
-        return new ParameterizableIfPassedApplier<>(filterSuppliersToPassedFunction);
+    public ParameterizedIfPassedApplier<T, R> build() {
+        return new ParameterizedIfPassedApplier<>(filterSuppliersToPassedFunction);
     }
 
 
-    public static <T, R> ParameterizableIfPassedApplierBuilder<T, R> create() {
-        return new ParameterizableIfPassedApplierBuilder<>();
+    public static <T, R> ParameterizedIfPassedApplierBuilder<T, R> create() {
+        return new ParameterizedIfPassedApplierBuilder<>();
     }
 }

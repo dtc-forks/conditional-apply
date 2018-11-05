@@ -6,7 +6,7 @@
 
     <groupId>com.jsunsoft</groupId>
     <artifactId>conditional-apply</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <name>conditional-apply</name>
     <description>Do something relate to condition</description>
