@@ -14,3 +14,5 @@ buildNumber.properties
 conditional-apply.iml
 conditionalapply.ipr
 conditionalapply.iws
+
+.idea
