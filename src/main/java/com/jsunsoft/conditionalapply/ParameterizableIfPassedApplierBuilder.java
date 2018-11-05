@@ -53,6 +53,11 @@ public class ParameterizableIfPassedApplierBuilder<T, R> {
         return this;
     }
 
+    public ParameterizableIfPassedApplierBuilder<T, R> applyAnyway(Function<T, R> passedFunction) {
+        filterSuppliersToPassedFunction.put(Collections.singleton(t -> true), passedFunction);
+        return this;
+    }
+
     public ParameterizableIfPassedApplier<T, R> build() {
         return new ParameterizableIfPassedApplier<>(filterSuppliersToPassedFunction);
     }
