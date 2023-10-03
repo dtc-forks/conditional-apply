@@ -158,7 +158,34 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+    <!--reDiscover4J-->
+<dependency>
+<groupId>org.rediscover4j</groupId>
+<artifactId>reDiscover4j</artifactId>
+<version>0.0.1</version>
+<scope>system</scope>
+<systemPath>/Users/meganm/Repos/DTC/reDiscover4j/lib/build/libs/reDiscover4j-0.0.1-SNAPSHOT.jar</systemPath>
+</dependency>
+<!--reDiscover4J-->
+<dependency>
+<groupId>org.rediscover4j</groupId>
+<artifactId>reDiscover4j</artifactId>
+<version>0.0.1</version>
+<scope>system</scope>
+<systemPath>/Users/meganm/Repos/DTC/reDiscover4j/lib/build/libs/reDiscover4j-0.0.1-SNAPSHOT.jar</systemPath>
+</dependency>
+<!--reDiscover4J-->
+<dependency>
+<groupId>org.rediscover4j</groupId>
+<artifactId>reDiscover4j</artifactId>
+<version>0.0.1</version>
+<scope>system</scope>
+<systemPath>/Users/meganm/Repos/DTC/reDiscover4j/lib/build/libs/reDiscover4j-0.0.1-SNAPSHOT.jar</systemPath>
+</dependency>
+</dependencies>
+
+
+
 
     <scm>
         <connection>scm:git:https://github.com/jsunsoftware/conditional-apply.git</connection>
